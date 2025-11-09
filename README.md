@@ -38,7 +38,7 @@ Kong Player 是一个基于 Electron + React + TypeScript 开发的桌面端视�
 
 ```bash
 # 克隆项目
-git clone https://github.com/your-username/kong-player.git
+git clone git@github.com:Z-KongHou/Kong_Player.git
 cd kong-player
 
 # 安装依赖
@@ -92,6 +92,7 @@ src/
 ## 🎯 功能规划
 
 ### 核心功能
+
 - [ ] 视频播放控制 (播放/暂停、进度条、音量控制)
 - [ ] 视频列表展示
 - [ ] 搜索功能
@@ -99,6 +100,7 @@ src/
 - [ ] 收藏功能
 
 ### 高级功能
+
 - [ ] 弹幕功能
 - [ ] 视频下载
 - [ ] 多语言支持
@@ -115,7 +117,7 @@ pnpm build
 
 # 构建特定平台
 pnpm build:win    # Windows 安装包
-pnpm build:mac    # macOS 安装包  
+pnpm build:mac    # macOS 安装包
 pnpm build:linux  # Linux 安装包
 ```
 
@@ -130,9 +132,9 @@ pnpm build:linux  # Linux 安装包
 欢迎提交 Issue 和 Pull Request！在贡献代码之前，请确保：
 
 1. Fork 本项目
-2. 创建您的功能分支 (`git checkout -b feature/amazing-feature`)
+2. 创建您的功能分支 (`git checkout -b feat/amazing-feature`)
 3. 提交您的更改 (`git commit -m 'Add some amazing feature'`)
-4. 推送到分支 (`git push origin feature/amazing-feature`)
+4. 推送到分支 (`git push origin feat/amazing-feature`)
 5. 打开一个 Pull Request
 
 ### 开发规范
@@ -162,4 +164,4 @@ pnpm build:linux  # Linux 安装包
 
 ---
 
-⭐ 如果这个项目对您有帮助，请给我们一个 Star！
+⭐ 如果这个项目对您有帮助，请给这个项目一个 Star！
