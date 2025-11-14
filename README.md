@@ -6,15 +6,15 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-blue.svg)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-5.1.6-blue.svg)](https://vitejs.dev/)
 
-> 🎬 一个仿BiliBili的桌面端视频播放器应用
+> 🎬 一个仿 BiliBili 的桌面端视频播放器应用
 
-Kong Player 是一个基于 Electron + React + TypeScript + Vite 开发的桌面端视频播放器应用，灵感来源于BiliBili，旨在为用户提供流畅的视频观看体验。
+Kong Player 是一个基于 Electron + React + TypeScript + Vite 开发的桌面端视频播放器应用，灵感来源于 BiliBili，旨在为用户提供流畅的视频观看体验。
 
 ## ✨ 特性
 
 - 🚀 **现代化技术栈**: Electron + React 18 + TypeScript + Vite
-- ⚡ **极速开发体验**: Vite提供快速的开发服务器和热更新
-- 🎨 **响应式设计**: 适配不同屏幕尺寸的现代化UI界面
+- ⚡ **极速开发体验**: Vite 提供快速的开发服务器和热更新
+- 🎨 **响应式设计**: 适配不同屏幕尺寸的现代化 UI 界面
 - 📺 **视频播放**: 支持多种视频格式和播放控制
 - 🔄 **自动更新**: 内置应用自动更新功能
 - 🎯 **跨平台**: 支持 Windows、macOS 和 Linux
@@ -27,20 +27,20 @@ Kong Player 是一个基于 Electron + React + TypeScript + Vite 开发的桌面
 - **编程语言**: [TypeScript](https://www.typescriptlang.org/) v5.2.2
 - **构建工具**: [Vite](https://vitejs.dev/) v5.1.6 + [vite-plugin-electron](https://github.com/electron-vite/vite-plugin-electron)
 - **代码规范**: ESLint + TypeScript
-- **包管理**: pnpm/npm/yarn
+- **包管理**: pnpm
 
 ## 📦 安装
 
 ### 环境要求
 
 - Node.js >= 18.0.0
-- 包管理器: pnpm/npm/yarn
+- 包管理器: pnpm
 
 ### 快速开始
 
 ```bash
 # 克隆项目
-git clone https://github.com/your-username/kong-player.git
+git clone https://github.com/Z-KongHou/kong-player.git
 cd kong-player
 
 # 安装依赖
@@ -79,11 +79,9 @@ pnpm preview
 ├─ src/              # React渲染进程源码
 │  ├─ App.tsx        # 根组件
 │  ├─ main.tsx       # React应用入口
-│  ├─ assets/        # 组件静态资源
-│  ├─ components/    # React组件
+│  ├─ assets/        # 静态资源
 │  ├─ App.css        # 根组件样式
 │  └─ index.css      # 全局样式
-├─ dist/             # Vite构建输出 (渲染进程)
 ├─ dist-electron/    # Electron构建输出 (主进程)
 └─ vite.config.ts    # Vite配置文件
 ```
@@ -93,12 +91,13 @@ pnpm preview
 本项目采用 **vite-plugin-electron** 插件，实现了：
 
 - **主进程** (`electron/main.ts`): 控制应用窗口、系统交互
-- **预加载脚本** (`electron/preload.ts`): 安全地暴露API给渲染进程
-- **渲染进程** (`src/`): 标准的React应用，使用Vite构建
+- **预加载脚本** (`electron/preload.ts`): 安全地暴露 API 给渲染进程
+- **渲染进程** (`src/`): 标准的 React 应用，使用 Vite 构建
 
 ## 🎯 功能规划
 
 ### 核心功能
+
 - [ ] 视频播放控制 (播放/暂停、进度条、音量控制)
 - [ ] 视频列表展示
 - [ ] 搜索功能
@@ -106,6 +105,7 @@ pnpm preview
 - [ ] 收藏功能
 
 ### 高级功能
+
 - [ ] 弹幕功能
 - [ ] 视频下载
 - [ ] 多语言支持
@@ -121,7 +121,7 @@ pnpm preview
 pnpm dev
 ```
 
-开发模式下，Vite会启动一个开发服务器，Electron会加载这个开发服务器的URL。
+开发模式下，Vite 会启动一个开发服务器，Electron 会加载这个开发服务器的 URL。
 
 ### 生产构建
 
@@ -131,9 +131,10 @@ pnpm build
 ```
 
 构建完成后：
+
 - 渲染进程代码会打包到 `dist/` 目录
 - 主进程代码会编译到 `dist-electron/` 目录
-- Electron应用会打包到平台对应的安装包
+- Electron 应用会打包到平台对应的安装包
 
 ### 跨平台构建
 
@@ -141,7 +142,7 @@ pnpm build
 # Windows
 pnpm build:win
 
-# macOS  
+# macOS
 pnpm build:mac
 
 # Linux
@@ -168,23 +169,28 @@ pnpm build:linux
 ## 📁 核心文件说明
 
 ### vite.config.ts
-配置Vite插件，整合Electron和React开发流程：
+
+配置 Vite 插件，整合 Electron 和 React 开发流程：
+
 ```typescript
 electron({
   main: { entry: 'electron/main.ts' },
   preload: { input: 'electron/preload.ts' },
-  renderer: {}
-})
+  renderer: {},
+});
 ```
 
 ### electron/main.ts
-Electron主进程文件，负责：
+
+Electron 主进程文件，负责：
+
 - 创建和管理应用窗口
 - 处理应用生命周期
 - 加载渲染进程
 
 ### electron/preload.ts
-预加载脚本，安全地暴露Electron API给渲染进程使用。
+
+预加载脚本，安全地暴露 Electron API 给渲染进程使用。
 
 ## 📝 许可证
 
@@ -201,8 +207,8 @@ Electron主进程文件，负责：
 
 如果您有任何问题或建议，请通过以下方式联系我们：
 
-- 提交 [Issue](https://github.com/your-username/kong-player/issues)
-- 发送邮件至: your-email@example.com
+- 提交 [Issue](https://github.com/Z-KongHou/Kong_Player/issues)
+- 发送邮件至: konghou0821@qq.com
 
 ---
 
