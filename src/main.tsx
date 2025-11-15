@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './router'
+import './index.css' // 导入全局样式
 import './types/electron' // 导入 Electron 类型声明
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

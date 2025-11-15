@@ -34,6 +34,7 @@ function createWindow() {
     height: 768,
     webPreferences: {
       preload: path.join(__dirname, 'preload.mjs'),
+      zoomFactor: 1.0,
     },
   })
 

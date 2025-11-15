@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+/* 确保 html 和 body 占满全屏 */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 可选：防止滚动条 */
+body {
+  overflow: hidden;
+}
