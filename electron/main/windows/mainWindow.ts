@@ -13,6 +13,8 @@ export function createWindow() {
   win = new BrowserWindow({
     width: Math.floor((screenSize.workAreaSize.height * 0.9 * 16) / 9),
     height: Math.floor(screenSize.workAreaSize.height * 0.9),
+    minHeight: Math.floor(screenSize.workAreaSize.height * 0.8),
+    minWidth: Math.floor((screenSize.workAreaSize.height * 0.8 * 16) / 9),
     webPreferences: {
       preload: path.join(__dirname, './preload.mjs'),
       zoomFactor: 1.0,
