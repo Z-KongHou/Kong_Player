@@ -2,6 +2,7 @@ import { app, BrowserWindow } from 'electron'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import { createWindow } from './windows/mainWindow'
+import { setupIpcHandlers } from './ipc/windowControl'
 // import { setupIpcHandlers } from './ipc/apiHandler'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -26,9 +27,6 @@ process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL
   ? path.join(process.env.APP_ROOT, 'public')
   : RENDERER_DIST
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
@@ -45,5 +43,5 @@ app.on('activate', () => {
 
 app.whenReady().then(() => {
   createWindow()
-  // setupIpcHandlers()
+  setupIpcHandlers()
 })

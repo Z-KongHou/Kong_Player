@@ -13,3 +13,12 @@ body,
 body {
   overflow: hidden;
 }
+
+/* Electron 窗口拖拽样式 */
+.app-drag {
+  -webkit-app-region: drag;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
