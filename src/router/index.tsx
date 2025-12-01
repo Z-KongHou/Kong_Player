@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
-import App from '../App'
+import App from '../main/App'
+import Video from '@/pages/Video'
 import About from '@/pages/About'
 import LazyLanding from '@/pages/LazyLanding'
 import { delay } from '@/utils/delay'
@@ -33,5 +34,9 @@ export const router = createBrowserRouter([
         element: <About />,
       },
     ],
+  },
+  {
+    path: 'video',
+    element: <Video />,
   },
 ])

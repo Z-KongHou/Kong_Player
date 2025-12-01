@@ -1,5 +1,6 @@
 import { ipcMain } from 'electron'
 import { getMainWindow } from '../windows/mainWindow'
+import { createVideoWindow } from '../windows/videoWindow'
 
 export function setupIpcHandlers() {
   ipcMain.on('window-minimize', () => {
@@ -30,4 +31,19 @@ export function setupIpcHandlers() {
     }
     win.close()
   })
+  ipcMain.on('video-window-create', () => {
+    createVideoWindow()
+  })
+  ipcMain.on('video-window-focus-main', () => {
+    const mainWindow = getMainWindow()
+
+    if (!mainWindow) {
+      console.error('Main window not found for focus operation')
+      return
+    }
+
+    // 聚焦主窗口
+    mainWindow.focus()
+  })
+
 }
