@@ -29,6 +29,15 @@ export default defineConfig({
           : {},
     }),
   ],
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        video: path.resolve(__dirname, 'video-player.html'),
+      },
+      // output: {},
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),

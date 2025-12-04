@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import { createWindow } from './windows/mainWindow'
 import { setupIpcHandlers } from './ipc/windowControl'
+import { setupIpcHandlersOfVideoWindow } from './ipc/videoControl'
 // import { setupIpcHandlers } from './ipc/apiHandler'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -44,4 +45,5 @@ app.on('activate', () => {
 app.whenReady().then(() => {
   createWindow()
   setupIpcHandlers()
+  setupIpcHandlersOfVideoWindow()
 })
