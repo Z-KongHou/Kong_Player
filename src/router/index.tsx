@@ -3,6 +3,8 @@ import { lazy, Suspense } from 'react'
 import App from '../main/App'
 import Video from '@/pages/Video'
 import About from '@/pages/About'
+import Profile from '@/pages/Profile'
+import Submission from '@/pages/Submission'
 import LazyLanding from '@/pages/LazyLanding'
 import { delay } from '@/utils/delay'
 
@@ -32,6 +34,14 @@ export const router = createBrowserRouter([
       {
         path: 'about',
         element: <About />,
+      },
+      {
+        path: 'profile',
+        element: <Profile />,
+      },
+      {
+        path: 'submission',
+        element: <Submission />,
       },
     ],
   },
