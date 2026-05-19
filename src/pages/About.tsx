@@ -14,10 +14,14 @@ const About = () => {
 
       <div className="bg-white dark:bg-[#1E2022] rounded-lg shadow-md dark:shadow-none overflow-hidden border border-transparent dark:border-[#2F3134] transition-colors duration-[750ms]">
         <div className="p-6">
-          <h1 className="text-3xl font-bold mb-6 text-gray-900 dark:text-[#E0E2E5] transition-colors duration-[750ms]">关于 Kong Player</h1>
+          <h1 className="text-3xl font-bold mb-6 text-gray-900 dark:text-[#E0E2E5] transition-colors duration-[750ms]">
+            关于 Kong Player
+          </h1>
 
           <div className="mb-6">
-            <h2 className="text-xl font-semibold mb-3 text-gray-900 dark:text-[#E0E2E5] transition-colors duration-[750ms]">项目介绍</h2>
+            <h2 className="text-xl font-semibold mb-3 text-gray-900 dark:text-[#E0E2E5] transition-colors duration-[750ms]">
+              项目介绍
+            </h2>
             <p className="text-gray-700 dark:text-[#A0A5AC] mb-4 transition-colors duration-[750ms]">
               Kong Player 是一个基于 Electron + React + TypeScript + Tailwind
               CSS 构建的桌面视频播放器应用。 该项目旨在提供一个类似 Bilibili
@@ -26,10 +30,14 @@ const About = () => {
           </div>
 
           <div className="mb-6">
-            <h2 className="text-xl font-semibold mb-3 text-gray-900 dark:text-[#E0E2E5] transition-colors duration-[750ms]">技术栈</h2>
+            <h2 className="text-xl font-semibold mb-3 text-gray-900 dark:text-[#E0E2E5] transition-colors duration-[750ms]">
+              技术栈
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-gray-50 dark:bg-[#2F3134] p-4 rounded transition-colors duration-[750ms]">
-                <h3 className="font-medium mb-2 text-gray-900 dark:text-[#E0E2E5]">前端技术</h3>
+                <h3 className="font-medium mb-2 text-gray-900 dark:text-[#E0E2E5]">
+                  前端技术
+                </h3>
                 <ul className="list-disc list-inside text-gray-700 dark:text-[#A0A5AC] space-y-1 transition-colors duration-[750ms]">
                   <li>React 18</li>
                   <li>TypeScript</li>
@@ -38,7 +46,9 @@ const About = () => {
                 </ul>
               </div>
               <div className="bg-gray-50 dark:bg-[#2F3134] p-4 rounded transition-colors duration-[750ms]">
-                <h3 className="font-medium mb-2 text-gray-900 dark:text-[#E0E2E5]">桌面技术</h3>
+                <h3 className="font-medium mb-2 text-gray-900 dark:text-[#E0E2E5]">
+                  桌面技术
+                </h3>
                 <ul className="list-disc list-inside text-gray-700 dark:text-[#A0A5AC] space-y-1 transition-colors duration-[750ms]">
                   <li>Electron</li>
                   <li>Vite</li>
@@ -50,7 +60,9 @@ const About = () => {
           </div>
 
           <div className="mb-6">
-            <h2 className="text-xl font-semibold mb-3 text-gray-900 dark:text-[#E0E2E5] transition-colors duration-[750ms]">主要功能</h2>
+            <h2 className="text-xl font-semibold mb-3 text-gray-900 dark:text-[#E0E2E5] transition-colors duration-[750ms]">
+              主要功能
+            </h2>
             <ul className="list-disc list-inside text-gray-700 dark:text-[#A0A5AC] space-y-2 transition-colors duration-[750ms]">
               <li>视频播放与控制</li>
               <li>弹幕系统</li>

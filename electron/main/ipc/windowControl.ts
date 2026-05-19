@@ -45,5 +45,4 @@ export function setupIpcHandlers() {
     // 聚焦主窗口
     mainWindow.focus()
   })
-
 }

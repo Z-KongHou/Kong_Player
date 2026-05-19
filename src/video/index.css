@@ -1,6 +1,6 @@
-@import 'tailwindcss';
+﻿@import 'tailwindcss';
 
-/* 确保 html 和 body 占满全屏 */
+/* 纭繚 html 鍜?body 鍗犳弧鍏ㄥ睆 */
 html,
 body,
 #root {
@@ -9,12 +9,12 @@ body,
   padding: 0;
 }
 
-/* 可选：防止滚动条 */
+/* 鍙€夛細闃叉婊氬姩鏉?*/
 body {
   overflow: hidden;
 }
 
-/* Electron 窗口拖拽样式 */
+/* Electron 绐楀彛鎷栨嫿鏍峰紡 */
 .app-drag {
   -webkit-app-region: drag;
 }

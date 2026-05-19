@@ -20,10 +20,10 @@ export const withMinDelay = async <T>(
   const startTime = Date.now()
   const result = await promise
   const elapsedTime = Date.now() - startTime
-  
+
   if (elapsedTime < minTime) {
     await delay(minTime - elapsedTime)
   }
-  
+
   return result
 }

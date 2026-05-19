@@ -10,7 +10,7 @@ import {
   formatVideoDuration,
   openVideoInStandaloneWindow,
   videoStatusLabel,
-} from '@/utils/video'
+} from '@/video/helpers'
 
 const Home = () => {
   const { accessToken } = useAuth()

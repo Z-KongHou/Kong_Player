@@ -1,7 +1,7 @@
 interface VideoCardProps {
   title: string
   author: string
-  /** 封面图 URL（OSS 预签名等）；无则显示占位 */
+  /** 封面图 URL；无则显示占位 */
   thumbUrl?: string | null
   /** 左下角辅助文案（如状态或互动数） */
   commentCount: string

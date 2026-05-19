@@ -1,4 +1,10 @@
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from 'react'
 import {
   getProfileApi,
   loginApi,
@@ -146,7 +152,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         throw new Error('未登录')
       }
       const updated = await updateProfileApi(token, patch)
-      setUser((prev) => mergeUser(prev, updated))
+      setUser(prev => mergeUser(prev, updated))
       const stored = readStoredSession()
       if (stored) {
         writeStoredSession({

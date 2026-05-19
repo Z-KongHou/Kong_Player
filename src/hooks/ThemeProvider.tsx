@@ -1,9 +1,4 @@
-import {
-  useCallback,
-  useEffect,
-  useState,
-  type ReactNode,
-} from 'react'
+import { useCallback, useEffect, useState, type ReactNode } from 'react'
 import { ThemeContext, type Theme } from './theme-context'
 
 const THEME_STORAGE_KEY = 'kong-player-theme'
@@ -33,7 +28,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [theme])
 
   const toggleTheme = useCallback(() => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
+    setTheme(prev => (prev === 'light' ? 'dark' : 'light'))
   }, [])
 
   return (
