@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useTheme } from '@/hooks/useTheme'
 
 interface NavItem {
   id: string
@@ -8,9 +9,26 @@ interface NavItem {
   path?: string
 }
 
+const SunIcon = () => (
+  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+    <path
+      fillRule="evenodd"
+      d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+      clipRule="evenodd"
+    />
+  </svg>
+)
+
+const MoonIcon = () => (
+  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+  </svg>
+)
+
 const SideBar: React.FC = () => {
   const navigate = useNavigate()
   const location = useLocation()
+  const { theme, toggleTheme } = useTheme()
 
   const topNavItems: NavItem[] = [
     {
@@ -57,23 +75,11 @@ const SideBar: React.FC = () => {
           />
         </svg>
       ),
+      path: '/profile',
     },
   ]
 
   const bottomNavItems: NavItem[] = [
-    {
-      id: 'space',
-      label: '空间',
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-          <path
-            fillRule="evenodd"
-            d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-    },
     {
       id: 'upload',
       label: '投稿',
@@ -86,6 +92,7 @@ const SideBar: React.FC = () => {
           />
         </svg>
       ),
+      path: '/submission',
     },
     {
       id: 'message',
@@ -100,11 +107,7 @@ const SideBar: React.FC = () => {
     {
       id: 'theme',
       label: '主题',
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-        </svg>
-      ),
+      icon: null,
     },
     {
       id: 'settings',
@@ -122,6 +125,10 @@ const SideBar: React.FC = () => {
   ]
 
   const handleNavClick = (item: NavItem) => {
+    if (item.id === 'theme') {
+      toggleTheme()
+      return
+    }
     if (item.path) {
       navigate(item.path)
     }
@@ -134,31 +141,44 @@ const SideBar: React.FC = () => {
     return false
   }
 
-  const renderNavItem = (item: NavItem) => (
-    <button
-      key={item.id}
-      onClick={() => handleNavClick(item)}
-      className={`
-        flex flex-col items-center justify-center space-y-1.5 p-2 rounded-lg w-full
-        transition-all duration-200 ease-in-out
-        ${
-          isActive(item)
-            ? 'text-[#3285FF]'
-            : 'text-[#61666D] hover:text-[#3285FF]'
-        }
-      `}
-    >
-      <span className="transition-colors duration-200 ease-in-out">
-        {item.icon}
-      </span>
-      <span className="text-[11px] leading-none transition-colors duration-200 ease-in-out">
-        {item.label}
-      </span>
-    </button>
-  )
+  const renderNavItem = (item: NavItem) => {
+    const icon =
+      item.id === 'theme' ? (
+        theme === 'light' ? (
+          <SunIcon />
+        ) : (
+          <MoonIcon />
+        )
+      ) : (
+        item.icon
+      )
+    return (
+      <button
+        key={item.id}
+        onClick={() => handleNavClick(item)}
+        className={`
+          flex flex-col items-center justify-center space-y-1.5 p-2 rounded-lg w-full
+          transition-all duration-200 ease-in-out transition-colors duration-[750ms] cursor-pointer
+          dark:text-[#A0A5AC] dark:hover:text-[#3285FF]
+          ${
+            isActive(item)
+              ? 'text-[#3285FF] dark:text-[#3285FF]'
+              : 'text-[#61666D] hover:text-[#3285FF]'
+          }
+        `}
+      >
+        <span className="transition-colors duration-200 ease-in-out">
+          {icon}
+        </span>
+        <span className="text-[11px] leading-none transition-colors duration-200 ease-in-out">
+          {item.label}
+        </span>
+      </button>
+    )
+  }
 
   return (
-    <div className="w-16 h-full bg-[#F6F7F8] flex flex-col">
+    <div className="w-16 h-full bg-[#F6F7F8] dark:bg-[#1E2022] flex flex-col transition-colors duration-[750ms] ease-in-out">
       {/* 上半部分导航 */}
       <div className="flex-1 py-6">
         <div className="px-2 space-y-3">{topNavItems.map(renderNavItem)}</div>
@@ -166,7 +186,7 @@ const SideBar: React.FC = () => {
 
       {/* 分割线 */}
       <div className="px-2">
-        <div className="border-t border-[#E8EAED]"></div>
+        <div className="border-t border-[#E8EAED] dark:border-[#2F3134] transition-colors duration-[750ms]" />
       </div>
 
       {/* 下半部分导航 */}

@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+/* Tailwind v4: 使用 class 切换深色模式 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* 确保 html 和 body 占满全屏 */
 html,
 body,
@@ -7,6 +10,17 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+/* 主题切换渐进式过渡，时长 0.75s */
+html {
+  transition:
+    background-color 0.75s ease,
+    color 0.75s ease;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 /* 可选：防止滚动条 */
@@ -21,4 +35,51 @@ body {
 
 .no-drag {
   -webkit-app-region: no-drag;
+}
+
+/* Electron / Chromium：简约滚动条 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+html.dark * {
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 轨道上下/左右留白，滑块区域不贴满整边，视觉上更短、更轻 */
+*::-webkit-scrollbar:vertical::-webkit-scrollbar-track {
+  margin-block: 16px;
+}
+
+*::-webkit-scrollbar:horizontal::-webkit-scrollbar-track {
+  margin-inline: 16px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.18);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.32);
+}
+
+html.dark *::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+html.dark *::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.35);
 }

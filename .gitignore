@@ -14,6 +14,11 @@ dist-ssr
 release
 *.local
 
+# Local test videos (place files in public/ manually, not versioned)
+public/*.mp4
+public/*.webm
+public/*.mkv
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
