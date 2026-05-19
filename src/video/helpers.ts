@@ -1,5 +1,5 @@
 import type { VideoListItem } from '@/types/video'
-import { setPendingVideoPlay } from '@/video/pendingPlay'
+import { setPendingVideoPlay } from './pendingPlay'
 
 export function formatVideoDuration(seconds: number | null): string {
   if (seconds == null || Number.isNaN(seconds)) return '--:--'

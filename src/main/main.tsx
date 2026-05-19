@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 import { router } from '../router'
 import { AuthProvider } from '@/auth/AuthProvider'
-import { ThemeProvider } from '../contexts/ThemeContext'
+import { ThemeProvider } from '@/hooks/ThemeProvider'
 import './index.css' // 导入全局样式
 import '../types/electron' // 导入 Electron 类型声明
 

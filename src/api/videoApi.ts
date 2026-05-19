@@ -1,4 +1,4 @@
-import { getApiBaseUrl } from '@/config/api'
+import { getApiBaseUrl } from '@/api/config'
 import { getMessage, isRecord, parseJson, requestJson } from '@/api/http'
 import { AuthApiError } from '@/types/auth'
 import type { VideoListResult } from '@/types/video'

@@ -31,7 +31,11 @@ const TitleBar: React.FC<TitleBarProps> = ({ title = 'Kong Player' }) => {
           className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-[#2F3134] transition-colors duration-[750ms] no-drag"
           onClick={handleMinimize}
         >
-          <svg className="w-4 h-4 text-gray-600 dark:text-gray-300 transition-colors duration-[750ms]" viewBox="0 0 12 12" fill="none">
+          <svg
+            className="w-4 h-4 text-gray-600 dark:text-gray-300 transition-colors duration-[750ms]"
+            viewBox="0 0 12 12"
+            fill="none"
+          >
             <path d="M2 6h8v1H2z" fill="currentColor" />
           </svg>
         </button>
@@ -41,8 +45,17 @@ const TitleBar: React.FC<TitleBarProps> = ({ title = 'Kong Player' }) => {
           className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-[#2F3134] transition-colors duration-[750ms] no-drag"
           onClick={handleMaximize}
         >
-          <svg className="w-4 h-4 text-gray-600 dark:text-gray-300 transition-colors duration-[750ms]" viewBox="0 0 12 12" fill="none">
-            <path d="M2 2h8v8H2z" fill="none" stroke="currentColor" strokeWidth="1" />
+          <svg
+            className="w-4 h-4 text-gray-600 dark:text-gray-300 transition-colors duration-[750ms]"
+            viewBox="0 0 12 12"
+            fill="none"
+          >
+            <path
+              d="M2 2h8v8H2z"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1"
+            />
           </svg>
         </button>
 
@@ -51,7 +64,11 @@ const TitleBar: React.FC<TitleBarProps> = ({ title = 'Kong Player' }) => {
           className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-[#2F3134] hover:text-white transition-colors duration-[750ms] no-drag"
           onClick={handleClose}
         >
-          <svg className="w-4 h-4 text-gray-600 dark:text-gray-300 transition-colors duration-[750ms]" viewBox="0 0 12 12" fill="none">
+          <svg
+            className="w-4 h-4 text-gray-600 dark:text-gray-300 transition-colors duration-[750ms]"
+            viewBox="0 0 12 12"
+            fill="none"
+          >
             <path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" strokeWidth="1" />
           </svg>
         </button>

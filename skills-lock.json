@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "electron": {
+      "source": "teachingai/full-stack-skills",
+      "sourceType": "github",
+      "computedHash": "5c45286626a71d8ec426dcc8390e47743d052426bcf696cc5c75df4ab374c7db"
+    }
+  }
+}

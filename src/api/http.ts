@@ -1,4 +1,4 @@
-import { getApiBaseUrl } from '@/config/api'
+import { getApiBaseUrl } from '@/api/config'
 import {
   AuthApiError,
   type ApiErrorBody,

@@ -9,7 +9,7 @@ import {
   formatVideoDuration,
   openVideoInStandaloneWindow,
   videoStatusLabel,
-} from '@/utils/video'
+} from '@/video/helpers'
 
 const Submission = () => {
   const { user, accessToken, initializing } = useAuth()

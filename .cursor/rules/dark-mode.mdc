@@ -1,0 +1,32 @@
+---
+description: Pages and components must include Tailwind dark: variants for theme-aware UI
+globs: src/pages/**/*.tsx,src/components/**/*.tsx
+alwaysApply: false
+---
+
+# Dark mode (class strategy)
+
+Root toggles the `dark` class via `ThemeProvider` (`src/hooks/ThemeProvider.tsx`). Tailwind uses `@custom-variant dark` in `src/main/index.css`.
+
+## Required
+
+When adding or editing UI in `src/pages/` or `src/components/`:
+
+- Every **background, text, border, shadow, hover, focus** style needs a matching **`dark:`** utility.
+- Do not ship light-only colors that break contrast in dark theme.
+- Prefer project palette: surfaces `#18191C` / `#1E2022` / `#2F3134`; text `#A0A5AC` / `#E0E2E5`; accent `#3285FF` or `blue-400`.
+- Match existing transitions where used, e.g. `transition-colors duration-[750ms]`.
+
+## Examples
+
+```tsx
+// Good
+<div className="bg-white text-gray-900 border-gray-200 dark:bg-[#18191C] dark:text-[#E0E2E5] dark:border-[#2F3134]">
+
+// Bad — no dark counterpart
+<div className="bg-white text-gray-900">
+```
+
+Theme-invariant assets (e.g. brand logo) may omit `dark:`.
+
+Full context: `AGENTS.md` → 「UI / 暗色模式」.
